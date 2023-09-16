@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root{
+    --line-border-fill: #3498db;
+    --line-border-empty: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+  
+
+  body{
+     background-color: #f6f7fb;
+     font-family: 'Muli', sans-serif;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  
+
+  }
+
+  .container{
+    text-align: center;
+    
+    
+  }
+
+  .progress-container{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+    /* border: 1px solid red; */
+  }
+
+
+ 
+
+  .progress-container::before {
+    content: '';
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;
+  }
+  
+
+
+
+
+  /*absoluto ou fixo . As propriedades top , right , bottom e left especificam deslocamentos das bordas do bloco que contém o elemento.*/
+  /*colocamos z-index -1 para ficar atrás do elemento (embaixo)*/
+  /*width 0% para definir o ponto de partida(inicio)*/
+  /* A função de translate serve para mover o elemento para os lados, ou para cima/baixo. A sintaxe pode ser especifica para um dos eixos x/y */
+  .progress{
+    background-color: var(--line-border-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition: 0.4s ease;
+
+  }
+
+
+  .circle{
+    background-color: #fff;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--line-border-empty);
+    transition: .4s ease;
+  }
+
+
+  .circle.active{
+    border-color: var(--line-border-fill);
+  }
+
+
+  .btn {
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+  }
+
+
+  /*
+    Utilizado para redimensionar os elementos, tendo como escala padrão 1. 
+    Valores maiores que 1, aumentarão o tamanho do elemento, e valores menores que 1 diminuirao 
+    sua escala.
+  */
+  /*quando clicarmos no botão ele vai fazer um efeito diminuindo um pouquinho.*/
+  .btn:active{
+    transform: scale(0.98);
+  }
+
+  .btn:focus{
+    outline: 0;
+  }
+
+
+  .btn:disabled{
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+  }
